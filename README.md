@@ -6,7 +6,9 @@ This userscript disables the original context menu of the browser and allows you
 
 ## Installation
 
-Install the userscript from [Greasy Fork](https://greasyfork.org/en/scripts/482987-copy-real-link) using a userscript manager extension such as [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/).
+1. Install a userscript manager extension like [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/) in your browser.
+
+2. Install the "Copy Real Link" script by visiting [this link](https://greasyfork.org/en/scripts/482987-copy-real-link).
 
 ## Usage
 
