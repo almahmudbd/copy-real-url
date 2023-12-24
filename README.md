@@ -12,7 +12,8 @@ This userscript disables the original context menu of the browser and allows you
 
 ## Usage
 
-When navigating through Google Search results, Yahoo Search, Facebook, or Hangouts, this userscript offers a convenient `Copy real link` option. Simply right-clicking on any link on the page will copy the direct link (URL) to the clipboard, bypassing any redirection URLs. You have the flexibility to enable or disable the script as required using your Tempermonkey extension.
+When navigating through Google Search results, Yahoo Search, Facebook, or Hangouts, this userscript offers a convenient `Copy real link` option. Simply right-clicking on any link on the page will copy the direct link (URL) to the clipboard, bypassing any redirection URLs. 
+You have the flexibility to enable or disable the script as required using your Tempermonkey extension.
 
 ### Example
 
