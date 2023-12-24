@@ -12,18 +12,18 @@ This userscript disables the original context menu of the browser and allows you
 
 ## Usage
 
-When browsing Google Search results, Yahoo Search, Facebook, or Hangouts, this userscript provides an additional option in the context menu labeled `Copy real link`. Clicking on this option copies the actual link (URL) into the clipboard, eliminating the need to deal with redirection URLs.
+When navigating through Google Search results, Yahoo Search, Facebook, or Hangouts, this userscript offers a convenient `Copy real link` option. Simply right-clicking on any link on the page will copy the direct link (URL) to the clipboard, bypassing any redirection URLs. You have the flexibility to enable or disable the script as required using your Tempermonkey extension.
 
 ### Example
 
 **Using Default Copy Link Address:**
 
-``https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0CCMQFjAB&url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FLed_Zeppelin&ei=DFHnU8_mK4Hi8AXqpIDAAg&usg=AFQjCNHIjSJNblTZM7fbhcTkrPNp14SnKw&sig2=L95WqCRVToubyMsGNnBFWg&bvm=bv.72676100,d.dGc``
+``https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0CCMQFjAB&url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FRuqyah&ei=DFHnU8_mK4Hi8AXqpIDAAg&usg=AFQjCNHIjSJNblTZM7fbhcTkrPNp14SnKw&sig2=L95WqCRVToubyMsGNnBFWg&bvm=bv.72676100,d.dGc``
 
 
 **Using Copy Real Link:**
 
-``http://en.wikipedia.org/wiki/Led_Zeppelin``
+``http://en.wikipedia.org/wiki/ruqyah``
 
 
 For Facebook Chat links and links in Hangouts, the userscript provides similar functionality, offering the real link for copying.
