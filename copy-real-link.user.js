@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Copy Real Link
-// @namespace    https://thealmahmud.blogspot.com/
 // @version      1.2
+// @namespace    https://greasyfork.org/en/scripts/482987-copy-real-link
 // @license      CC BY
 // @description  Extract and copy real URLs from redirect URLs on Google, Fb, etc.
 // @author       almahmud & gpt
