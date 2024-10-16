@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Copy Real Link
-// @version      1.2
+// @version      1.3
 // @namespace    https://greasyfork.org/en/scripts/482987-copy-real-link
 // @license      CC BY
 // @description  Extract and copy real URLs from redirect URLs on Google, Fb, etc., with a copy button.
@@ -19,7 +19,6 @@
 
     const createCopyButton = (url) => {
         const button = document.createElement('button');
-        button.textContent = 'Copy Real Link'; 
         button.style.position = 'absolute';
         button.style.zIndex = '1000';
         button.style.backgroundColor = '#007bff';
@@ -28,6 +27,11 @@
         button.style.padding = '5px 10px';
         button.style.borderRadius = '4px';
         button.style.cursor = 'pointer';
+
+        // SVG icon
+        const svgIcon = `<svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.975 14.51a1.05 1.05 0 0 0 0-1.485 2.95 2.95 0 0 1 0-4.172l3.536-3.535a2.95 2.95 0 1 1 4.172 4.172l-1.093 1.092a1.05 1.05 0 0 0 1.485 1.485l1.093-1.092a5.05 5.05 0 0 0-7.142-7.142L9.49 7.368a5.05 5.05 0 0 0 0 7.142c.41.41 1.075.41 1.485 0zm2.05-5.02a1.05 1.05 0 0 0 0 1.485 2.95 2.95 0 0 1 0 4.172l-3.5 3.5a2.95 2.95 0 1 1-4.171-4.172l1.025-1.025a1.05 1.05 0 0 0-1.485-1.485L3.87 12.99a5.05 5.05 0 0 0 7.142 7.142l3.5-3.5a5.05 5.05 0 0 0 0-7.142 1.05 1.05 0 0 0-1.485 0z" fill="#000000"/></svg>`;
+        
+        button.innerHTML = `${svgIcon} Copy Real Link`; // Add icon and text
 
         button.onclick = () => {
             GM_setClipboard(url); // Copy to clipboard
