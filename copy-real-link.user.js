@@ -3,7 +3,7 @@
 // @version      1.2
 // @namespace    https://greasyfork.org/en/scripts/482987-copy-real-link
 // @license      CC BY
-// @description  Extract and copy real URLs from redirect URLs on Google, Fb, etc.
+// @description  Extract and copy real URLs from redirect URLs on Google, Fb, etc., with a copy button.
 // @author       almahmud & gpt
 // @match        *://www.google.*/*search*
 // @match        *://search.yahoo.com/*
@@ -15,35 +15,66 @@
 // ==/UserScript==
 
 (function() {
-'use strict';
+    'use strict';
 
-document.addEventListener('contextmenu', function(event){
-    let target = event.target;
+    const createCopyButton = (url) => {
+        const button = document.createElement('button');
+        button.textContent = 'Copy real URL'; // Updated button text
+        button.style.position = 'absolute';
+        button.style.zIndex = '1000';
+        button.style.backgroundColor = '#007bff';
+        button.style.color = '#fff';
+        button.style.border = 'none';
+        button.style.padding = '5px 10px';
+        button.style.borderRadius = '4px';
+        button.style.cursor = 'pointer';
 
-    // Check if the right-clicked element is a link
-    if (target.tagName === 'A' && target.href) {
-        let url = target.href;
-        let testRE;
+        button.onclick = () => {
+            GM_setClipboard(url); // Copy to clipboard
+            button.textContent = 'Copied!'; // Update button text to indicate success
+            setTimeout(() => button.remove(), 2000); // Remove button after a short delay
+        };
 
-        // Define the regular expressions for each website
-        if (document.URL.match("http(s|)://www.google")) {
-            testRE = url.match("url=([^&]*)&");
-        } else if (document.URL.match("http(s|)://mail.google")) {
-            testRE = url.match("url\\?q=([^&]*)&");
-        } else if (document.URL.match("http(s|)://www.facebook")) {
-            testRE = url.match("u=([^&]*)&");
-        } else if (document.URL.match("http(s|)://web.facebook")) {
-            testRE = url.match("u=([^&]*)&");
-        } else if (document.URL.match("http(s|)://.*search.yahoo")) {
-            testRE = url.match("RU=([^/]*)/");
+        return button;
+    };
+
+    document.addEventListener('contextmenu', function(event){
+        let target = event.target;
+
+        // Check if the right-clicked element is a link
+        if (target.tagName === 'A' && target.href) {
+            let url = target.href;
+            let testRE;
+
+            // Define the regular expressions for each website
+            if (document.URL.match("http(s|)://www.google")) {
+                testRE = url.match("url=([^&]*)&");
+            } else if (document.URL.match("http(s|)://mail.google")) {
+                testRE = url.match("url\\?q=([^&]*)&");
+            } else if (document.URL.match("http(s|)://www.facebook")) {
+                testRE = url.match("u=([^&]*)&");
+            } else if (document.URL.match("http(s|)://web.facebook")) {
+                testRE = url.match("u=([^&]*)&");
+            } else if (document.URL.match("http(s|)://.*search.yahoo")) {
+                testRE = url.match("RU=([^/]*)/");
+            }
+
+            // Decode the URL if a match is found
+            if (testRE) {
+                let realURL = decodeURIComponent(testRE[1]);
+
+                // Create and position the copy button
+                const button = createCopyButton(realURL);
+                document.body.appendChild(button);
+                const rect = target.getBoundingClientRect();
+                button.style.top = `${rect.top + window.scrollY}px`;
+                button.style.left = `${rect.right + window.scrollX + 5}px`;
+                
+                // Show the default context menu
+                setTimeout(() => {
+                    button.remove();
+                }, 2000); // Remove button after a short delay
+            }
         }
-
-        // Decode and copy the URL if a match is found
-        if (testRE) {
-            let realURL = decodeURIComponent(testRE[1]);
-            GM_setClipboard(realURL); // Copy to clipboard
-            event.preventDefault(); // Prevent the default context menu
-        }
-    }
-});
+    });
 })();
