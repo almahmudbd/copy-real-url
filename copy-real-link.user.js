@@ -19,7 +19,7 @@
 
     const createCopyButton = (url) => {
         const button = document.createElement('button');
-        button.textContent = 'Copy real URL'; // Updated button text
+        button.textContent = 'Copy Real Link'; 
         button.style.position = 'absolute';
         button.style.zIndex = '1000';
         button.style.backgroundColor = '#007bff';
