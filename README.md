@@ -29,6 +29,10 @@ You have the flexibility to enable or disable the script as needed using your Ta
 
 For Facebook Chat links and links in Hangouts, the userscript provides similar functionality, offering the real link for copying.
 
+##Known Bug
+Not working with facebook's big link previews, 
+Contributions are welcome! Feel free to submit pull requests [in GitHub](https://github.com/almahmudbd/copy-real-url-userscript)
+
 ## Changelog
 
 ### Version 1.2
